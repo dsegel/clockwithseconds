@@ -1,11 +1,11 @@
 """
-Applet: Morph Clock
-Summary: A clock w/morphing digits
-Description: A clock with digits that morph from one to the next.
+Applet: ClockWithSeconds
+Summary: A clock with seconds
+Description: A clock with seconds.
 Author: D. Segel
 """
 
-# Morphing Clock
+# Clock with Seconds
 # Copyright (c) 2023 Daniel Segel
 # MIT License
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,7 +45,7 @@ DEFAULT_LOCATION = """
 """
 
 def main(config):
-    time_format_24 = config.get("24_hour_time", DEFAULT_TIME_FORMAT) 
+    time_format_24 = config.get("24_hour_time", DEFAULT_TIME_FORMAT)
     am_pm_option = config.get("am_pm_option", "no_am_pm")
     clock_color = config.get("clock_color", DEFAULT_CLOCK_COLOR)
     time_offset = config.get("time_offset", 0)
@@ -102,7 +102,7 @@ def main(config):
             else:
                 left_margin += 5
 
-        print("Adding frame for {}".format(the_current_time))
+        # print("Adding frame for {}".format(the_current_time))
 
         time_frame = render.Padding(pad = (left_margin, 10, 0, 0), child = render.Text(content = the_current_time, font = "6x13", color = clock_color))
         time_frames.append(time_frame)
@@ -188,7 +188,7 @@ am_pm_options = [
     ),
     schema.Option(
         display = "Show with uppercase: AM/PM",
-        value = "AM_PM"
+        value = "AM_PM",
     ),
 ]
 
